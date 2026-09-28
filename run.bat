@@ -1,7 +1,4 @@
 @echo off
-REM -----------------------------------------------------------------------------
-REM Tu dong khoi tao moi truong ao (.venv) va chay du an tren Windows
-REM -----------------------------------------------------------------------------
 
 echo [1/3] Kiem tra moi truong ao .venv...
 if not exist ".venv" (

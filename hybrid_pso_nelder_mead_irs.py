@@ -1,3 +1,26 @@
+import sys
+import subprocess
+
+# Tự động kiểm tra và cài đặt thư viện nếu máy chưa có
+REQUIRED_PACKAGES = {
+    "numpy": "numpy",
+    "scipy": "scipy",
+    "matplotlib": "matplotlib"
+}
+
+for module_name, package_name in REQUIRED_PACKAGES.items():
+    try:
+        __import__(module_name)
+    except ImportError:
+        print(f"[Auto-Setup] Chưa tìm thấy thư viện '{package_name}'. Đang tự động cài đặt...")
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+            print(f"[Auto-Setup] Đã cài đặt thành công '{package_name}'!")
+        except Exception as e:
+            print(f"[Lỗi] Không thể tự động cài {package_name}: {e}")
+            print(f"Vui lòng chạy lệnh: pip install -r requirements.txt")
+            sys.exit(1)
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize

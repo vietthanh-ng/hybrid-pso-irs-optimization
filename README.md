@@ -41,27 +41,44 @@ where:
 ```bash
 ├── Hybrid_PSO_Nelder_Mead_IRS_Report.pdf   # Comprehensive 19-page IEEE-format Technical Report
 ├── hybrid_pso_nelder_mead_irs.py          # Complete simulation & optimization pipeline in Python
+├── requirements.txt                   # Dependency list
+├── run.sh                             # 1-Click auto-setup & run script (macOS/Linux)
+├── run.bat                            # 1-Click auto-setup & run script (Windows)
 ├── .gitignore                         # Standard Python gitignore
 └── README.md                          # Project documentation
 ```
 
 ---
 
-## 🛠️ Installation & Requirements
+## Quickstart (Zero Configuration)
 
-Ensure you have Python 3.8+ installed, then install the required dependencies:
+You can run the project in **one click** without worrying about missing packages or python environments:
 
+### Option 1: 1-Click Automated Runner (Recommended)
+The runner script will automatically create a dedicated virtual environment (`.venv`), install all required dependencies, and launch the simulation:
+
+- **macOS / Linux:**
+  ```bash
+  ./run.sh
+  ```
+- **Windows:**
+  Double-click `run.bat` or run:
+  ```cmd
+  run.bat
+  ```
+
+### Option 2: Direct Execution (Built-in Auto-Installer)
+The Python script has a built-in auto-installer. If you run:
 ```bash
-pip install numpy scipy matplotlib
+python hybrid_pso_nelder_mead_irs.py
 ```
+It will automatically detect and install any missing dependencies (`numpy`, `scipy`, `matplotlib`) before running!
 
----
-
-## 💻 Usage
-
-Run the complete Monte Carlo simulation and benchmark script:
-
+### Option 3: Manual Installation via `requirements.txt`
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate       # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 python hybrid_pso_nelder_mead_irs.py
 ```
 
